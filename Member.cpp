@@ -24,10 +24,10 @@ Member::~Member(){
 }
 
 void Member::follow(Member& m){
-
-    Following.insert(&m);
-    m.Followers.insert(this);
-
+    if (m != this){
+        Following.insert(&m);
+        m.Followers.insert(this);
+    }
 
     // this->Following++;
     // m.Followers++;

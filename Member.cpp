@@ -6,10 +6,12 @@
 using namespace std;
 
 int Member::counting = 0;
-
+//constructor
 Member::Member(){
     counting++;
 }
+
+//distractor
 Member::~Member(){
     counting--;
     
@@ -23,34 +25,22 @@ Member::~Member(){
     }
     
 }
-
+// follow
 void Member::follow(Member& m){
     if (&m != this){
         Following.insert(&m);
         m.Followers.insert(this);
     }
 
-    // this->Following++;
-    // m.Followers++;
-
+    
     
 }
-
+// unfollow
 void Member::unfollow(Member& m){
 if (&m != this){
     Following.erase(&m);
     m.Followers.erase(this);
 }
-    // this->Following--;
-    // m.Followers--;
-    
+   
 }
-// int Member::numFollowers(){
-//     return numFollowers;
-// }
-
-// int Member::numFollowing(){
-//     return numFollowing;
-// }
-
 

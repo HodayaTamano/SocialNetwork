@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Member.h"
+
 #include <set>
 
 using namespace std;
@@ -24,7 +25,7 @@ Member::~Member(){
 }
 
 void Member::follow(Member& m){
-    if (m != this){
+    if (&m != this){
         Following.insert(&m);
         m.Followers.insert(this);
     }
@@ -36,10 +37,10 @@ void Member::follow(Member& m){
 }
 
 void Member::unfollow(Member& m){
-
+if (&m != this){
     Following.erase(&m);
     m.Followers.erase(this);
-
+}
     // this->Following--;
     // m.Followers--;
     
